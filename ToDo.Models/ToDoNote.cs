@@ -10,6 +10,7 @@ namespace ToDo.Models
         public string ToDoTitle { get; set; }
         public string ToDoText { get; set; }
         public int UserId { get; set; }
+        public bool IsDone { get; set; }
         public User User { get; set; }
     }
 }
