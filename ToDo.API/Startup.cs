@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ToDo.API.Models;
 
 namespace ToDo.API
 {
@@ -29,6 +30,8 @@ namespace ToDo.API
             services.AddDbContext<AppDbContext>(options => options.
             UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             services.AddControllers();
+            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IToDoNoteRepository, ToDoNoteRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

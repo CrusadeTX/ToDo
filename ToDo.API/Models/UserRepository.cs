@@ -22,14 +22,16 @@ namespace ToDo.API.Models
             return result.Entity;
         }
 
-        public async void DeleteUser(int userId)
+        public async Task<User> DeleteUser(int userId)
         {
             var result = await appDbContext.Users.FirstOrDefaultAsync(u => u.UserId == userId);
             if (result != null)
             {
                 appDbContext.Users.Remove(result);
                 await appDbContext.SaveChangesAsync();
+                return result;
             }
+            return null;
         }
 
         public async Task<User> GetUser(int userId)

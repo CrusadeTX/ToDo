@@ -12,6 +12,6 @@ namespace ToDo.API.Models
         Task<ToDoNote> GetToDoNote (int toDoNoteId);
         Task<ToDoNote> AddToDoNote(ToDoNote toDoNote);
         Task<ToDoNote> UpdateToDoNote(ToDoNote toDoNote);
-        void DeleteToDoNote(int toDoNoteId);
+        Task<ToDoNote> DeleteToDoNote(int toDoNoteId);
     }
 }

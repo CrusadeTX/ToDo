@@ -22,14 +22,16 @@ namespace ToDo.API.Models
             return result.Entity;
         }
 
-        public async void DeleteToDoNote(int toDoNoteId)
+        public async Task<ToDoNote> DeleteToDoNote(int toDoNoteId)
         {
             var result = await appDbContext.ToDos.FirstOrDefaultAsync(t => t.ToDoNoteId == toDoNoteId);
             if (result != null)
             {
                 appDbContext.ToDos.Remove(result);
                 await appDbContext.SaveChangesAsync();
+                return result;
             }
+            return null;
         }
 
         public async Task<IEnumerable<ToDoNote>> GetToDoNotes()
