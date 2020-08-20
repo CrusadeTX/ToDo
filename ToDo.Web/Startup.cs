@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using ToDo.Web.Services;
 
 namespace ToDo.Web
 {
@@ -28,6 +28,10 @@ namespace ToDo.Web
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddHttpClient<IUserService, UserService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44340/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

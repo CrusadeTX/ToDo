@@ -6,7 +6,7 @@ using ToDo.Models;
 
 namespace ToDo.API.Models
 {
-    interface IToDoNoteRepository
+    public interface IToDoNoteRepository
     {
         Task<IEnumerable<ToDoNote>> GetToDoNotes();
         Task<ToDoNote> GetToDoNote (int toDoNoteId);
