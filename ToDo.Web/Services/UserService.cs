@@ -18,6 +18,11 @@ namespace ToDo.Web.Services
             this.httpClient = httpClient;
         }
 
+        public async Task<User> GetUser(int id)
+        {
+            return await httpClient.GetJsonAsync<User>($"api/users/{id}");
+        }
+
         public async Task<IEnumerable<User>> GetUsers()
         {
             return await httpClient.GetJsonAsync<User[]>("api/users");

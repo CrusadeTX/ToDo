@@ -1,0 +1,34 @@
+﻿@page "/userdetails/{id}"
+@inherits UserDetailsBase
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@user.FName @user.LName</h1>
+            </div>
+
+            <div class="card-body text-center">
+
+                <h4>User ID : @user.UserId</h4>
+                <h4>Email : @user.Email</h4>
+                @if (user.ToDos != null)
+                {
+                    @foreach (var toDoNote in user.ToDos)
+                    {
+                        <h4>ToDo : @user.ToDos</h4>
+                    }
+                }
+                else { 
+                    <h4>To Do: No To Do Notes available </h4>
+                }
+
+            </div>
+            <div class="card-footer text-center">
+                <a href="/" class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

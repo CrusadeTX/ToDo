@@ -9,5 +9,6 @@ namespace ToDo.Web.Services
     public interface IToDoNoteService
     {
         Task<IEnumerable<ToDoNote>> GetToDos();
+        Task<ToDoNote> GetToDo(int id);
     }
 }

@@ -69,7 +69,7 @@ namespace ToDo.API.Controllers
             }
         }
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<ToDoNote>> UpdatToDo(int id, ToDoNote toDoNote)
+        public async Task<ActionResult<ToDoNote>> UpdateToDo(int id, ToDoNote toDoNote)
         {
             try
             {
