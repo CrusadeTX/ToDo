@@ -32,6 +32,10 @@ namespace ToDo.Web
             {
                 client.BaseAddress = new Uri("https://localhost:44340/");
             });
+            services.AddHttpClient<IToDoNoteService, ToDoNoteService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44340/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

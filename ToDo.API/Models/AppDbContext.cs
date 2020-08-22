@@ -33,13 +33,14 @@ namespace ToDo.API
             {
                 UserId = 1,
                 ToDoNoteId = 1,
-                ToDoText="Text",
-                ToDoTitle="Title",
+                ToDoText = "Text",
+                ToDoTitle = "Title",
+                IsDone = false
 
 
 
 
-            }) ;
+            });
         }
     }
 }

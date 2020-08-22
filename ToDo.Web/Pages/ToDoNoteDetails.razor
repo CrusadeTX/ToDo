@@ -1,0 +1,26 @@
+﻿@page  "/ToDoNotedetails/{id}"
+@inherits ToDoNoteDetailsBase
+<h3>ToDoNoteDetails</h3>
+
+<div class="card-deck">
+    {
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+            <div class="card-header">
+                <h3>@toDoNote.ToDoTitle</h3>
+            </div>
+            <div class="card-body">
+                <p>@toDoNote.ToDoText</p>
+                <textarea>User: @toDoNote.UserId</textarea>
+                <p>IsDone: @toDoNote.IsDone</p>
+            </div>
+            <div class="card-footer text-center">
+                <a href="/" class="btn btn-primary m-1">Back</a>
+
+                <a href="#" class="btn btn-primary m-1">Edit</a>
+
+                <a href="#" class="btn btn-danger m-1">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+}

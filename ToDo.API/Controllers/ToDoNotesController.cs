@@ -26,10 +26,10 @@ namespace ToDo.API.Controllers
             {
                 return Ok(await toDoNoteRepository.GetToDoNotes());
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error retrieving data from the database");
+                    e.Message);
             }
         }
         [HttpGet("{id:int}")]
