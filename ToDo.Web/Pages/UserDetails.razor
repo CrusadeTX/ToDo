@@ -17,26 +17,29 @@ else
 
                     <h4>User ID : @user.UserId</h4>
                     <h4>Email : @user.Email</h4>
-                    @if (user.ToDos != null)
+                    @if (ToDoNotes != null)
                     {
-                        @foreach (var toDoNote in user.ToDos)
+                        @foreach (var toDoNote in ToDoNotes)
                         {
+                            if (user.UserId == toDoNote.UserId)
+                            {
                             <h4>ToDo : @toDoNote.ToDoTitle</h4>
                             <p>@toDoNote.ToDoText</p>
 
-                            <InputCheckbox @bind-Value="@toDoNote.IsDone">Done</InputCheckbox>
+                            
+                         
+                                }
+                            }
                         }
-                    }
                     else
                     {
-                        <div class="spinner"></div>
                         <h4>To Do: No To Do Notes available </h4>
                     }
 
                 </div>
                 <div class="card-footer text-center">
                     <a href="/" class="btn btn-primary">Back</a>
-                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="@($"edituser/{user.UserId}")" class="btn btn-primary">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                 </div>
             </div>
