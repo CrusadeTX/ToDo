@@ -36,12 +36,12 @@ namespace ToDo.API.Models
 
         public async Task<User> GetUser(int userId)
         {
-            return await appDbContext.Users.FirstOrDefaultAsync(u => u.UserId == userId);
+            return await appDbContext.Users.Include(u => u.ToDos).FirstOrDefaultAsync(u => u.UserId == userId);
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await appDbContext.Users.ToListAsync();
+            return await appDbContext.Users.Include(u => u.ToDos).ToListAsync();
         }
 
         public async Task<User> UpdateUser(User user)

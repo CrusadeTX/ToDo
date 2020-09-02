@@ -41,7 +41,7 @@ namespace ToDo.API.Models
 
         public async Task<ToDoNote> GetToDoNote(int toDoNoteId)
         {
-            return await appDbContext.ToDos.FirstOrDefaultAsync(t => t.ToDoNoteId == toDoNoteId);
+            return await appDbContext.ToDos.Include(t => t.User).FirstOrDefaultAsync(t => t.ToDoNoteId == toDoNoteId);
         }
 
         public async Task<ToDoNote> UpdateToDoNote(ToDoNote toDoNote)

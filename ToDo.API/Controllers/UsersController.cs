@@ -26,10 +26,10 @@ namespace ToDo.API.Controllers
             {
                 return Ok(await userRepository.GetUsers());
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error retrieving data from the database");
+                    "Error retrieving data from the database" + e.Message);
             }
         }
         [HttpGet("{id:int}")]
@@ -43,10 +43,10 @@ namespace ToDo.API.Controllers
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e )
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error retrieving data from the database");
+                    "Error retrieving data from the database"+ e.Message);
             }
         }
         [HttpPost]

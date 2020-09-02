@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ToDo.Models
 {
@@ -15,6 +16,7 @@ namespace ToDo.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+        [JsonIgnore]
         public List<ToDoNote> ToDos { get; set; }
     }
 }
