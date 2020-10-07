@@ -10,5 +10,6 @@ namespace ToDo.Web.Services
     {
         Task<IEnumerable<ToDoNote>> GetToDos();
         Task<ToDoNote> GetToDo(int id);
+        Task<ToDoNote> UpdateToDo(ToDoNote updatedToDoNote);
     }
 }

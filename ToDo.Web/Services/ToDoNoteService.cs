@@ -26,5 +26,10 @@ namespace ToDo.Web.Services
         {
             return await httpClient.GetJsonAsync<IEnumerable<ToDoNote>>($"api/ToDoNotes");
         }
+
+        public async Task<ToDoNote> UpdateToDo(ToDoNote updatedToDoNote)
+        {
+            return await httpClient.PutJsonAsync<ToDoNote>("api/ToDoNotes", updatedToDoNote);
+        }
     }
 }
