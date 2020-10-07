@@ -68,18 +68,15 @@ namespace ToDo.API.Controllers
                     "Error creating new employee record");
             }
         }
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult<User>> UpdateEmployee(int id, User user)
+        [HttpPut]
+        public async Task<ActionResult<User>> UpdateEmployee(User user)
         {
             try
             {
-                if (id != user.UserId)
-                    return BadRequest("User ID mismatch");
-
-                var userToUpdate = await userRepository.GetUser(id);
+                var userToUpdate = await userRepository.GetUser(user.UserId);
 
                 if (userToUpdate == null)
-                    return NotFound($"User with Id = {id} not found");
+                    return NotFound($"User with Id = {user.UserId} not found");
 
                 return await userRepository.UpdateUser(user);
             }
