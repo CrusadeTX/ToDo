@@ -31,5 +31,9 @@ namespace ToDo.Web.Services
         {
             return await httpClient.PutJsonAsync<ToDoNote>("api/ToDoNotes", updatedToDoNote);
         }
+        public async Task<ToDoNote> CreateToDo(ToDoNote createdToDoNote)
+        {
+            return await httpClient.PostJsonAsync<ToDoNote>("api/ToDoNotes", createdToDoNote);
+        }
     }
 }

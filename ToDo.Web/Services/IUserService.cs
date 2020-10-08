@@ -11,6 +11,7 @@ namespace ToDo.Web.Services
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUser(int id);
         Task<User> UpdateUser(User updatedUser);
+        Task<User> CreateUser(User createdUser);
 
     }
 }

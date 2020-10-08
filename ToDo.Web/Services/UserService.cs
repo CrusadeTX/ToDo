@@ -32,5 +32,9 @@ namespace ToDo.Web.Services
         {
             return await httpClient.PutJsonAsync<User>("api/users", updatedUser);
         }
+        public async Task<User> CreateUser(User createdUser)
+        {
+            return await httpClient.PostJsonAsync<User>("api/users", createdUser);
+        }
     }
 }
