@@ -62,10 +62,10 @@ namespace ToDo.API.Controllers
                 return CreatedAtAction(nameof(GetToDo),
                     new { id = createdToDo.ToDoNoteId }, createdToDo);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error creating new employee record");
+                    "Error creating new employee record "+ e.Message);
             }
         }
         [HttpPut()]

@@ -1,3 +1,41 @@
 ﻿<h3>CreateToDoNote</h3>
 @page "/CreateToDo"
-@inherits CreateToDoNote
+@inherits CreateToDoNoteBase
+<EditForm Model="@EditToDoNote" OnSubmit="HandleValidSubmit">
+    <h3>Edit Employee</h3>
+    <hr />
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">
+            Title
+        </label>
+        <div class="col-sm-10">
+            <InputText id="firstName" class="form-control" placeholder="Wake up"
+                       @bind-Value="EditToDoNote.ToDoTitle" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">
+            Text
+        </label>
+        <div class="col-sm-10">
+            <InputText id="lastName" class="form-control" placeholder="It is really important to wake up at 6 am"
+                       @bind-Value="EditToDoNote.ToDoText" />
+        </div>
+    </div>
+    <div class="form-group row">
+    </div>
+    <div class="form-group row">
+        <label for="department" class="col-sm-2 col-form-label">
+            User
+        </label>
+        <div class="col-sm-10">
+            <InputSelect id="user" @bind-Value="EditToDoNote.UserId" class="form-control">
+                @foreach (var user in Users)
+                {
+                    <option value="@user.UserId">@user.FName @user.LName</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</EditForm>
