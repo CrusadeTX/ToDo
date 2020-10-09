@@ -9,7 +9,7 @@ using ToDo.Web.Services;
 
 namespace ToDo.Web.Pages
 {
-    public class EditToDoNoteDetailsBase : ComponentBase
+    public class CreateToDoNoteBase : ComponentBase
     {
         public ToDoNote ToDoNote { get; set; } = new ToDoNote();
         public List<User> Users { get; set; } = new List<User>();
@@ -32,19 +32,19 @@ namespace ToDo.Web.Pages
             ToDoNote = await ToDoNoteService.GetToDo(int.Parse(Id));
             Users = (await UserService.GetUsers()).ToList();
             UserId = ToDoNote.UserId.ToString();
-            EditToDoNote.IsDone = ToDoNote.IsDone;
-            EditToDoNote.ToDoNoteId = ToDoNote.ToDoNoteId;
-            EditToDoNote.ToDoText = ToDoNote.ToDoText;
-            EditToDoNote.ToDoTitle = ToDoNote.ToDoTitle;
-            foreach (User user in Users) 
-            { 
-             if(user.UserId == ToDoNote.UserId)
-                {
-                    EditToDoNote.User = user;
-                }
-            
-            }
-            EditToDoNote.UserId = ToDoNote.UserId;
+            //EditToDoNote.IsDone = ToDoNote.IsDone;
+            //EditToDoNote.ToDoNoteId = ToDoNote.ToDoNoteId;
+            //EditToDoNote.ToDoText = ToDoNote.ToDoText;
+            //EditToDoNote.ToDoTitle = ToDoNote.ToDoTitle;
+            //foreach (User user in Users)
+            //{
+            //    if (user.UserId == ToDoNote.UserId)
+            //    {
+            //        EditToDoNote.User = user;
+            //    }
+
+            //}
+            //EditToDoNote.UserId = ToDoNote.UserId;
 
 
         }
@@ -57,11 +57,13 @@ namespace ToDo.Web.Pages
             editedToDoNote.ToDoTitle = EditToDoNote.ToDoTitle;
             editedToDoNote.User = EditToDoNote.User;
             editedToDoNote.UserId = EditToDoNote.UserId;
-            var result = await ToDoNoteService.UpdateToDo(editedToDoNote);
+            var result = await ToDoNoteService.CreateToDo(editedToDoNote);
             if (result != null)
             {
                 NavigationManager.NavigateTo("/ToDoNotes");
             }
         }
+    
+
     }
 }

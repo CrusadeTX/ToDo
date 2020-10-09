@@ -62,24 +62,23 @@ namespace ToDo.API.Controllers
                 return CreatedAtAction(nameof(GetToDo),
                     new { id = createdToDo.ToDoNoteId }, createdToDo);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error creating new employee record");
+                    "Error creating new employee record "+ e.Message);
             }
         }
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult<ToDoNote>> UpdateToDo(int id, ToDoNote toDoNote)
+        [HttpPut()]
+        public async Task<ActionResult<ToDoNote>> UpdateToDo(ToDoNote toDoNote)
         {
             try
             {
-                if (id != toDoNote.ToDoNoteId)
-                    return BadRequest("ToDoNote ID mismatch");
+             
 
-                var toDoNoteToUpdate = await toDoNoteRepository.GetToDoNote(id);
+                var toDoNoteToUpdate = await toDoNoteRepository.GetToDoNote(toDoNote.ToDoNoteId);
 
                 if (toDoNoteToUpdate == null)
-                    return NotFound($"ToDoNote with Id = {id} not found");
+                    return NotFound($"ToDoNote with Id = {toDoNote.ToDoNoteId} not found");
 
                 return await toDoNoteRepository.UpdateToDoNote(toDoNote);
             }
