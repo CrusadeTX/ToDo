@@ -43,7 +43,7 @@ namespace ToDo.Web.Pages
             editedUser.Email = EditUser.Email;
             editedUser.Password = EditUser.Password;
             editedUser.ToDos = EditUser.ToDos;
-            var result = await UserService.CreateUser(editedUser);
+            User result = await UserService.CreateUser(editedUser);
             if (result != null)
             {
                 NavigationManager.NavigateTo("/");
