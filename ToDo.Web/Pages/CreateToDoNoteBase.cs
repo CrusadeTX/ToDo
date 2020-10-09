@@ -52,7 +52,7 @@ namespace ToDo.Web.Pages
         {
             ToDoNote editedToDoNote = new ToDoNote();
             editedToDoNote.IsDone = EditToDoNote.IsDone;
-            editedToDoNote.ToDoNoteId = Int32.Parse(EditToDoNote.ToDoNoteId);
+            //editedToDoNote.ToDoNoteId = Int32.Parse(EditToDoNote.ToDoNoteId);
             editedToDoNote.ToDoText = EditToDoNote.ToDoText;
             editedToDoNote.ToDoTitle = EditToDoNote.ToDoTitle;
             editedToDoNote.User = EditToDoNote.User;
