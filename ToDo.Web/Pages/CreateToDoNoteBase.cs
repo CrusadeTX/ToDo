@@ -52,11 +52,11 @@ namespace ToDo.Web.Pages
         {
             ToDoNote editedToDoNote = new ToDoNote();
             editedToDoNote.IsDone = EditToDoNote.IsDone;
-            editedToDoNote.ToDoNoteId = EditToDoNote.ToDoNoteId;
+            editedToDoNote.ToDoNoteId = Int32.Parse(EditToDoNote.ToDoNoteId);
             editedToDoNote.ToDoText = EditToDoNote.ToDoText;
             editedToDoNote.ToDoTitle = EditToDoNote.ToDoTitle;
             editedToDoNote.User = EditToDoNote.User;
-            editedToDoNote.UserId = EditToDoNote.UserId;
+            editedToDoNote.UserId = Int32.Parse(EditToDoNote.UserId);
             var result = await ToDoNoteService.CreateToDo(editedToDoNote);
             if (result != null)
             {

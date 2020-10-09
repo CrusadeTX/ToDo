@@ -32,7 +32,7 @@
             <InputSelect id="user" @bind-Value="EditToDoNote.UserId" class="form-control">
                 @foreach (var user in Users)
                 {
-                    <option value="@user.UserId">@user.FName @user.LName</option>
+                    <option value="@user.UserId.ToString()">@user.FName @user.LName</option>
                 }
             </InputSelect>
         </div>

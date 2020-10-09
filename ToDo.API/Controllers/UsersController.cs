@@ -55,7 +55,9 @@ namespace ToDo.API.Controllers
             try
             {
                 if (user == null)
+                {
                     return BadRequest();
+                }
 
                 var createdUser = await userRepository.AddUser(user);
 

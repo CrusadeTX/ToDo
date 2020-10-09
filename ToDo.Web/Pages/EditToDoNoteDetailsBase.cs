@@ -33,7 +33,7 @@ namespace ToDo.Web.Pages
             Users = (await UserService.GetUsers()).ToList();
             UserId = ToDoNote.UserId.ToString();
             EditToDoNote.IsDone = ToDoNote.IsDone;
-            EditToDoNote.ToDoNoteId = ToDoNote.ToDoNoteId;
+            EditToDoNote.ToDoNoteId = ToDoNote.ToDoNoteId.ToString();
             EditToDoNote.ToDoText = ToDoNote.ToDoText;
             EditToDoNote.ToDoTitle = ToDoNote.ToDoTitle;
             foreach (User user in Users) 
@@ -44,7 +44,7 @@ namespace ToDo.Web.Pages
                 }
             
             }
-            EditToDoNote.UserId = ToDoNote.UserId;
+            EditToDoNote.UserId = ToDoNote.UserId.ToString();
 
 
         }
@@ -52,11 +52,11 @@ namespace ToDo.Web.Pages
         {
             ToDoNote editedToDoNote = new ToDoNote();
             editedToDoNote.IsDone = EditToDoNote.IsDone;
-            editedToDoNote.ToDoNoteId = EditToDoNote.ToDoNoteId;
+            editedToDoNote.ToDoNoteId = Int32.Parse(EditToDoNote.ToDoNoteId);
             editedToDoNote.ToDoText = EditToDoNote.ToDoText;
             editedToDoNote.ToDoTitle = EditToDoNote.ToDoTitle;
             editedToDoNote.User = EditToDoNote.User;
-            editedToDoNote.UserId = EditToDoNote.UserId;
+            editedToDoNote.UserId = Int32.Parse(EditToDoNote.UserId);
             var result = await ToDoNoteService.UpdateToDo(editedToDoNote);
             if (result != null)
             {
