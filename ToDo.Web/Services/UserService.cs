@@ -36,5 +36,9 @@ namespace ToDo.Web.Services
         {
             return await httpClient.PostJsonAsync<User>("api/users", createdUser);
         }
+        public async Task DeleteUser(int id)
+        {
+            await httpClient.DeleteAsync($"api/users/{id}");
+        }
     }
 }

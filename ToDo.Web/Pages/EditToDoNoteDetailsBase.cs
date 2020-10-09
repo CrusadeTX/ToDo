@@ -63,5 +63,11 @@ namespace ToDo.Web.Pages
                 NavigationManager.NavigateTo("/ToDoNotes");
             }
         }
+        protected async Task Delete_Click() 
+        {
+            await ToDoNoteService.DeleteToDo(ToDoNote.ToDoNoteId);
+            NavigationManager.NavigateTo("/ToDoNotes");
+
+        }
     }
 }

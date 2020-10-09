@@ -12,5 +12,7 @@ namespace ToDo.Web.Services
         Task<ToDoNote> GetToDo(int id);
         Task<ToDoNote> UpdateToDo(ToDoNote updatedToDoNote);
         Task<ToDoNote> CreateToDo(ToDoNote createdToDoNote);
+        Task DeleteToDo(int id);
+
     }
 }

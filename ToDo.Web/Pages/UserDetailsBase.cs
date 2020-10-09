@@ -13,7 +13,8 @@ namespace ToDo.Web.Pages
     {
         public User user { get; set; } = new User();
         public List<ToDoNote> ToDoNotes { get; set; } = new List<ToDoNote>();
-
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
         [Inject]
         public IUserService UserService { get; set; }
         [Inject]
@@ -30,6 +31,12 @@ namespace ToDo.Web.Pages
             user = await UserService.GetUser(int.Parse(Id));
 
             
+        }
+        protected async Task Delete_Click()
+        {
+            await UserService.DeleteUser(user.UserId);
+            NavigationManager.NavigateTo("/");
+
         }
 
     }

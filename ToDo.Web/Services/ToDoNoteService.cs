@@ -35,5 +35,9 @@ namespace ToDo.Web.Services
         {
             return await httpClient.PostJsonAsync<ToDoNote>("api/ToDoNotes", createdToDoNote);
         }
+        public async Task DeleteToDo(int id)
+        {
+            await httpClient.DeleteAsync($"api/ToDoNotes/{id}");
+        }
     }
 }

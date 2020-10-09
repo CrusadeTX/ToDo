@@ -49,5 +49,9 @@ namespace ToDo.Web.Pages
                 NavigationManager.NavigateTo("/");
             }
         }
+        protected async Task Delete_Click() 
+        {
+
+        }
     }
 }
