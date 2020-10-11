@@ -11,7 +11,7 @@ namespace ToDo.Web.Models
     public class EditUserModel
     {
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
        
         public string FName { get; set; }
         

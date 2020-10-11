@@ -38,7 +38,7 @@ namespace ToDo.Web.Pages
         {
             User editedUser = new User();
             editedUser.FName = EditUser.FName;
-            editedUser.UserId = EditUser.UserId;
+            //editedUser.UserId = EditUser.UserId;
             editedUser.LName = EditUser.LName;
             editedUser.Email = EditUser.Email;
             editedUser.Password = EditUser.Password;

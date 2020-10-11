@@ -26,7 +26,7 @@ namespace ToDo.Web.Pages
         protected async override Task OnInitializedAsync()
         {
            User = await UserService.GetUser(int.Parse(Id));
-            EditUser.UserId = User.UserId;
+            EditUser.UserId = User.UserId.ToString();
             EditUser.FName = User.FName;
             EditUser.LName = User.LName;
             EditUser.Email = User.Email;
@@ -38,7 +38,7 @@ namespace ToDo.Web.Pages
         {
            User editedUser = new User();
             editedUser.FName = EditUser.FName;
-            editedUser.UserId = EditUser.UserId;
+            editedUser.UserId = Int32.Parse(EditUser.UserId);
             editedUser.LName = EditUser.LName;
             editedUser.Email = EditUser.Email;
             editedUser.Password = EditUser.Password;

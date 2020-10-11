@@ -28,10 +28,10 @@ namespace ToDo.Web.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Id = Id ?? "1";
-            ToDoNote = await ToDoNoteService.GetToDo(int.Parse(Id));
+            //Id = Id ?? "1";
+            //ToDoNote = await ToDoNoteService.GetToDo(int.Parse(Id));
             Users = (await UserService.GetUsers()).ToList();
-            UserId = ToDoNote.UserId.ToString();
+            //UserId = ToDoNote.UserId.ToString();
             //EditToDoNote.IsDone = ToDoNote.IsDone;
             //EditToDoNote.ToDoNoteId = ToDoNote.ToDoNoteId;
             //EditToDoNote.ToDoText = ToDoNote.ToDoText;
@@ -57,7 +57,7 @@ namespace ToDo.Web.Pages
             editedToDoNote.ToDoTitle = EditToDoNote.ToDoTitle;
             editedToDoNote.User = EditToDoNote.User;
             editedToDoNote.UserId = Int32.Parse(EditToDoNote.UserId);
-            var result = await ToDoNoteService.CreateToDo(editedToDoNote);
+            ToDoNote result = await ToDoNoteService.CreateToDo(editedToDoNote);
             if (result != null)
             {
                 NavigationManager.NavigateTo("/ToDoNotes");
