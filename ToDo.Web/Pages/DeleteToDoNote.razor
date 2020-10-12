@@ -1,0 +1,30 @@
+﻿@page "/deletetodonote/{id}"
+
+@inherits DeleteToDoNoteBase
+
+<h3>DeleteToDoNote</h3>
+@if (ToDoNote == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1> Are you sure you want to Delete the following ToDoNote : @ToDoNote.ToDoTitle ?</h1>
+                </div>
+                <div class="card-body text-center">
+                    <div class="card-footer text-center">
+                        <a href="/" class="btn btn-primary">Cancel</a>
+                        <button class="btn btn-danger" type="button" @onclick="Delete_Click">Delete</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+

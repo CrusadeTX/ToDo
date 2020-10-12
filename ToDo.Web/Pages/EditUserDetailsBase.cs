@@ -51,7 +51,8 @@ namespace ToDo.Web.Pages
         }
         protected async Task Delete_Click() 
         {
-
+            await UserService.DeleteUser(User.UserId);
+            NavigationManager.NavigateTo("/");
         }
     }
 }
